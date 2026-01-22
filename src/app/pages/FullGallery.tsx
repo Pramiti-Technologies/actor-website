@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/utils/ImageWithFallback';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import img1 from '../../assets/8e9d64c4e107680915d204f3bd00d39e20618bec.png';
@@ -111,8 +111,8 @@ export function FullGallery() {
 
   const categories = ['All', 'Headshots', 'Character', 'Events', 'Lifestyle', 'Travel', 'Behind the Scenes'];
 
-  const filteredImages = filter === 'All' 
-    ? galleryImages 
+  const filteredImages = filter === 'All'
+    ? galleryImages
     : galleryImages.filter(img => img.category === filter);
 
   const handlePrevious = () => {
@@ -142,18 +142,17 @@ export function FullGallery() {
               Back to Home
             </Button>
           </div>
-          
+
           {/* Filter Tabs */}
           <div className="flex gap-4 mt-6">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  filter === category
+                className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === category
                     ? 'bg-amber text-charcoal'
                     : 'bg-charcoal border border-warm-grey/40 text-warm-grey hover:border-amber hover:text-amber'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -179,7 +178,7 @@ export function FullGallery() {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4">

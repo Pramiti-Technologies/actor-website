@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Award, Download, Quote } from 'lucide-react';
 import { Button } from './Button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './utils/ImageWithFallback';
 import clientImage from '../../assets/9a69738f76f7233608c1d51131db8d813e2919e4.png';
 
 export function AboutSection() {
@@ -40,10 +40,10 @@ export function AboutSection() {
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent" />
-              
+
               {/* Caption overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                <p 
+                <p
                   className="text-warm-grey/80 text-sm italic"
                   style={{ fontFamily: 'var(--font-hook)', fontWeight: 300 }}
                 >
@@ -51,7 +51,7 @@ export function AboutSection() {
                 </p>
               </div>
             </div>
-            
+
             {/* Decorative accent */}
             <div className="absolute -bottom-6 -right-6 w-48 h-48 border-2 border-amber/20 rounded-lg -z-10" />
           </motion.div>
@@ -67,11 +67,11 @@ export function AboutSection() {
             <div className="space-y-4">
               <h3 className="text-3xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>Industry Bio</h3>
               <p className="text-warm-grey leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                A versatile performer with over 10 years of experience across film, television, theatre, and comedy. 
-                Known for bringing depth and authenticity to every role, from dramatic lead characters to comedic 
+                A versatile performer with over 10 years of experience across film, television, theatre, and comedy.
+                Known for bringing depth and authenticity to every role, from dramatic lead characters to comedic
                 supporting roles.
               </p>
-              
+
               {/* Interruption Quote */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -84,9 +84,9 @@ export function AboutSection() {
                   "Most of the work happens when no one's watching."
                 </p>
               </motion.div>
-              
+
               <p className="text-warm-grey leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                Trained at prestigious institutions and featured in award-winning productions. A storyteller at heart 
+                Trained at prestigious institutions and featured in award-winning productions. A storyteller at heart
                 with a passion for creating memorable moments that resonate with audiences.
               </p>
             </div>
@@ -109,12 +109,12 @@ export function AboutSection() {
               </ul>
             </div>
 
-            <div className="pt-6">
+            {/* <div className="pt-6">
               <Button variant="secondary" icon={false}>
                 <Download className="w-5 h-5" />
                 Download Resume
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
 
@@ -128,24 +128,24 @@ export function AboutSection() {
         >
           <div className="bg-charcoal border border-amber/20 rounded-lg p-8 md:p-12 relative">
             <Quote className="absolute top-6 left-6 w-12 h-12 text-amber/20" />
-            
+
             <div className="relative z-10">
               <h3 className="text-3xl text-ivory mb-6">The Journey</h3>
               <div className="space-y-4 text-warm-grey leading-relaxed">
                 <p>
-                  My journey in the performing arts began on a small community theatre stage, where I discovered 
-                  the transformative power of storytelling. What started as a childhood fascination evolved into 
+                  My journey in the performing arts began on a small community theatre stage, where I discovered
+                  the transformative power of storytelling. What started as a childhood fascination evolved into
                   a dedicated craft, shaped by years of training, collaboration, and countless hours of creative exploration.
                 </p>
                 <p>
-                  From Shakespearean tragedy to contemporary comedy, I've had the privilege of inhabiting diverse 
-                  characters and exploring the full spectrum of human experience. Each role has been an opportunity 
+                  From Shakespearean tragedy to contemporary comedy, I've had the privilege of inhabiting diverse
+                  characters and exploring the full spectrum of human experience. Each role has been an opportunity
                   to connect with audiences on a deeper level, to share stories that entertain, challenge, and inspire.
                 </p>
                 <p>
-                  Beyond the spotlight, I'm passionate about mentoring emerging artists and contributing to the 
-                  creative community that has given me so much. Whether I'm on stage, in front of the camera, or 
-                  behind the scenes, my commitment remains the same: to tell compelling stories with honesty, 
+                  Beyond the spotlight, I'm passionate about mentoring emerging artists and contributing to the
+                  creative community that has given me so much. Whether I'm on stage, in front of the camera, or
+                  behind the scenes, my commitment remains the same: to tell compelling stories with honesty,
                   courage, and heart.
                 </p>
               </div>

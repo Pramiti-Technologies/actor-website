@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/utils/ImageWithFallback';
 import { Play, Sparkles, X } from 'lucide-react';
 
 // Mock data for Ghibli episodes
@@ -92,18 +92,17 @@ export function GhibliPage() {
               Back to Home
             </Button>
           </div>
-          
+
           {/* Tab Navigation */}
           <div className="flex gap-4 overflow-x-auto pb-2">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 whitespace-nowrap ${
-                  activeTab === tab.id
+                className={`flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 whitespace-nowrap ${activeTab === tab.id
                     ? 'bg-amber text-charcoal shadow-lg'
                     : 'bg-charcoal border border-amber/20 text-warm-grey hover:border-amber hover:text-amber'
-                }`}
+                  }`}
               >
                 <div className="text-left">
                   <div className={activeTab === tab.id ? 'text-charcoal font-medium' : ''}>{tab.label}</div>
@@ -142,10 +141,10 @@ export function GhibliPage() {
                     alt={episode.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  
+
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
-                  
+
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-16 h-16 rounded-full bg-amber flex items-center justify-center">
@@ -207,12 +206,11 @@ export function GhibliPage() {
                 alt={selectedEpisode.title}
                 className="w-full h-full object-contain"
               />
-              
+
               {/* Video overlay with play/pause controls */}
-              <div 
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                  isPlaying ? 'bg-charcoal/20 opacity-0 hover:opacity-100' : 'bg-charcoal/60'
-                }`}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? 'bg-charcoal/20 opacity-0 hover:opacity-100' : 'bg-charcoal/60'
+                  }`}
                 onClick={togglePlayPause}
               >
                 <motion.div

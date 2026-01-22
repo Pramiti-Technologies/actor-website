@@ -5,18 +5,19 @@ import { useNavigate } from 'react-router-dom';
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
+  target?: string;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'outline' | 'glow' | 'slide' | 'minimal';
   icon?: boolean;
   rounded?: boolean;
 }
 
-export function Button({ children, href, onClick, variant = 'primary', icon = true, rounded = false }: ButtonProps) {
+export function Button({ children, href, target, onClick, variant = 'primary', icon = true, rounded = false }: ButtonProps) {
   const navigate = useNavigate();
-  
+
   const getButtonStyles = () => {
     const roundedClass = rounded ? 'rounded-full' : 'rounded-sm';
-    
+
     switch (variant) {
       case 'primary':
         return {
@@ -31,7 +32,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           ),
           animation: { scale: 1.02, y: -2 }
         };
-      
+
       case 'secondary':
         return {
           className: `relative inline-flex items-center gap-3 px-10 py-5 bg-transparent border-2 border-amber text-amber ${roundedClass} overflow-hidden group`,
@@ -53,7 +54,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           animation: { scale: 1.02 },
           textHover: "group-hover:text-ivory"
         };
-      
+
       case 'outline':
         return {
           className: `relative inline-flex items-center gap-3 px-8 py-4 bg-charcoal border-2 border-warm-grey/40 text-warm-grey ${roundedClass} group hover:border-burgundy`,
@@ -68,7 +69,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           animation: { x: 4 },
           textHover: "group-hover:text-burgundy"
         };
-      
+
       case 'glow':
         return {
           className: `relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-burgundy to-burgundy-hover text-ivory ${roundedClass} group shadow-lg`,
@@ -85,7 +86,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           ),
           animation: { scale: 1.05 }
         };
-      
+
       case 'slide':
         return {
           className: `relative inline-flex items-center gap-3 px-10 py-5 bg-charcoal border border-amber/30 text-amber ${roundedClass} overflow-hidden group`,
@@ -100,7 +101,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           animation: { x: 8 },
           textHover: "group-hover:text-ivory"
         };
-      
+
       case 'minimal':
         return {
           className: `inline-flex items-center gap-2 px-6 py-3 text-amber group hover:text-burgundy ${roundedClass}`,
@@ -115,7 +116,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           ),
           animation: { x: 4 }
         };
-      
+
       default:
         return {
           className: `inline-flex items-center gap-3 px-8 py-4 bg-burgundy text-ivory ${roundedClass}`,
@@ -144,7 +145,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
     // Check if it's an internal route (starts with /) or hash link (starts with #)
     const isInternalRoute = href.startsWith('/');
     const isHashLink = href.startsWith('#');
-    
+
     const handleClick = () => {
       if (isInternalRoute) {
         navigate(href);
@@ -154,7 +155,7 @@ export function Button({ children, href, onClick, variant = 'primary', icon = tr
           element.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        window.open(href, '_blank');
+        window.open(href, target || '_blank');
       }
     };
 

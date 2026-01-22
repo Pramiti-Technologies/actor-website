@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './Button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './utils/ImageWithFallback';
 import newBannerImage from '../../assets/64e441218e34bc333780399c4111281f884c287b.png';
 import img2 from '../../assets/acccbc17903dd2c553768dd3cfa0cd459c9d759c.png';
 import img3 from '../../assets/0458372e744a526c75a9cdf75ff616deb45c0100.png';
@@ -82,7 +82,7 @@ export function HeroSlideshow() {
         >
           "I entertain because I must."
         </motion.p>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,11 +111,10 @@ export function HeroSlideshow() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide
+            className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                 ? 'w-12 bg-amber'
                 : 'w-2 bg-warm-grey/50 hover:bg-warm-grey'
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/utils/ImageWithFallback';
 import { Play, Instagram, Music, Video, X } from 'lucide-react';
 
 // Mock data for each comedy category
@@ -95,7 +95,7 @@ export function ComedyPage() {
               Back to Home
             </Button>
           </div>
-          
+
           {/* Tab Navigation */}
           <div className="flex gap-4 overflow-x-auto pb-2">
             {tabs.map((tab) => {
@@ -104,11 +104,10 @@ export function ComedyPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 whitespace-nowrap ${
-                    activeTab === tab.id
+                  className={`flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 whitespace-nowrap ${activeTab === tab.id
                       ? 'bg-burgundy text-ivory shadow-lg'
                       : 'bg-charcoal border border-amber/20 text-warm-grey hover:border-amber hover:text-amber'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-5 h-5" />
                   <div className="text-left">
@@ -149,7 +148,7 @@ export function ComedyPage() {
                     alt={video.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  
+
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-charcoal/40 group-hover:bg-charcoal/20 transition-colors duration-300">
                     <div className="w-16 h-16 rounded-full bg-burgundy group-hover:bg-amber flex items-center justify-center transition-colors duration-300">
@@ -215,12 +214,11 @@ export function ComedyPage() {
                 alt={selectedVideoData.title}
                 className="w-full h-full object-contain"
               />
-              
+
               {/* Video overlay with play/pause controls */}
-              <div 
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                  isPlaying ? 'bg-charcoal/20 opacity-0 hover:opacity-100' : 'bg-charcoal/60'
-                }`}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? 'bg-charcoal/20 opacity-0 hover:opacity-100' : 'bg-charcoal/60'
+                  }`}
                 onClick={togglePlayPause}
               >
                 <motion.div

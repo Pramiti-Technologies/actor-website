@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './utils/ImageWithFallback';
 import { Button } from './Button';
 import { useNavigate } from 'react-router-dom';
 import img1 from '../../assets/8e9d64c4e107680915d204f3bd00d39e20618bec.png';
@@ -56,12 +56,12 @@ const galleryImages = [
 
 export function GallerySection() {
   const navigate = useNavigate();
-  
+
   return (
     <section id="gallery" className="min-h-screen py-20 px-6 relative overflow-hidden">
       {/* Amber accent background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber/5 to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <motion.div
@@ -99,7 +99,7 @@ export function GallerySection() {
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

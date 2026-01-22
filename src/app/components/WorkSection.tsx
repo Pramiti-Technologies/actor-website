@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Play, X, Sparkles, PlayCircle } from 'lucide-react';
 import { Button } from './Button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './utils/ImageWithFallback';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import reelsImage from '../../assets/fbe14e6f990283a474dbc4b41b41c2541649c89d.png';
@@ -158,7 +158,7 @@ export function WorkSection() {
                         allow="autoplay; fullscreen; picture-in-picture"
                         allowFullScreen
                       />
-                      
+
                       {/* Close Button */}
                       <button
                         onClick={() => setPlayingVideoId(null)}
@@ -174,7 +174,7 @@ export function WorkSection() {
                       <iframe
                         src={getInstagramEmbedUrl(project.instagramLink) || ''}
                         className="absolute w-[400%] h-[400%]"
-                        style={{ 
+                        style={{
                           top: '-150%',
                           left: '-150%',
                           transform: 'scale(0.8)',
@@ -182,7 +182,7 @@ export function WorkSection() {
                         frameBorder="0"
                         scrolling="no"
                       />
-                      
+
                       {/* Close Button */}
                       <button
                         onClick={() => setPlayingVideoId(null)}
@@ -200,10 +200,10 @@ export function WorkSection() {
                         alt={project.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      
+
                       {/* Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                      
+
                       {/* Play Button Overlay */}
                       {(project.vimeoId || project.instagramLink) && (
                         <button
@@ -247,7 +247,7 @@ export function WorkSection() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <Button variant="primary" href="https://www.backstage.com" target="_blank">
+            <Button variant="primary" href="https://www.backstage.com/u/prashanth-krishnamoorthy/" target="_blank">
               View Full Profile on Backstage
             </Button>
           </motion.div>
@@ -271,7 +271,7 @@ export function WorkSection() {
                 Comedy Reels
               </h3>
             </div>
-            
+
             <div className="space-y-4 mb-8">
               {comedyReels.map((reel, index) => (
                 <motion.div
@@ -324,7 +324,7 @@ export function WorkSection() {
                 Ghibli Stories
               </h3>
             </div>
-            
+
             <div className="space-y-4 mb-8">
               {ghibliStories.map((story, index) => (
                 <motion.div
