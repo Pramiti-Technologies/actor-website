@@ -10,9 +10,10 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'glow' | 'slide' | 'minimal';
   icon?: boolean;
   rounded?: boolean;
+  disabled?: boolean;
 }
 
-export function Button({ children, href, target, onClick, variant = 'primary', icon = true, rounded = false }: ButtonProps) {
+export function Button({ children, href, target, onClick, variant = 'primary', icon = true, rounded = false, disabled = false }: ButtonProps) {
   const navigate = useNavigate();
 
   const getButtonStyles = () => {
@@ -21,7 +22,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
     switch (variant) {
       case 'primary':
         return {
-          className: `relative inline-flex items-center gap-3 px-10 py-5 bg-burgundy text-ivory ${roundedClass} overflow-hidden group shadow-lg hover:shadow-2xl`,
+          className: `relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-5 bg-burgundy text-ivory text-sm md:text-base ${roundedClass} overflow-hidden group shadow-lg hover:shadow-2xl`,
           hoverEffect: (
             <motion.div
               className={`absolute inset-0 bg-gradient-to-r from-burgundy-hover to-burgundy ${roundedClass}`}
@@ -35,7 +36,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       case 'secondary':
         return {
-          className: `relative inline-flex items-center gap-3 px-10 py-5 bg-transparent border-2 border-amber text-amber ${roundedClass} overflow-hidden group`,
+          className: `relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-5 bg-transparent border-2 border-amber text-amber text-sm md:text-base ${roundedClass} overflow-hidden group`,
           hoverEffect: (
             <>
               <motion.div
@@ -57,7 +58,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       case 'outline':
         return {
-          className: `relative inline-flex items-center gap-3 px-8 py-4 bg-charcoal border-2 border-warm-grey/40 text-warm-grey ${roundedClass} group hover:border-burgundy`,
+          className: `relative inline-flex items-center gap-2 md:gap-3 px-5 py-3 md:px-8 md:py-4 bg-charcoal border-2 border-warm-grey/40 text-warm-grey text-sm md:text-base ${roundedClass} group hover:border-burgundy`,
           hoverEffect: (
             <motion.div
               className={`absolute inset-0 bg-burgundy/10 ${roundedClass}`}
@@ -72,7 +73,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       case 'glow':
         return {
-          className: `relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-burgundy to-burgundy-hover text-ivory ${roundedClass} group shadow-lg`,
+          className: `relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-5 bg-gradient-to-r from-burgundy to-burgundy-hover text-ivory text-sm md:text-base ${roundedClass} group shadow-lg`,
           hoverEffect: (
             <>
               <motion.div
@@ -89,7 +90,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       case 'slide':
         return {
-          className: `relative inline-flex items-center gap-3 px-10 py-5 bg-charcoal border border-amber/30 text-amber ${roundedClass} overflow-hidden group`,
+          className: `relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-10 md:py-5 bg-charcoal border border-amber/30 text-amber text-sm md:text-base ${roundedClass} overflow-hidden group`,
           hoverEffect: (
             <motion.div
               className={`absolute inset-0 bg-gradient-to-r from-amber/20 via-burgundy/20 to-amber/20 ${roundedClass}`}
@@ -104,7 +105,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       case 'minimal':
         return {
-          className: `inline-flex items-center gap-2 px-6 py-3 text-amber group hover:text-burgundy ${roundedClass}`,
+          className: `inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 text-amber text-sm md:text-base group hover:text-burgundy ${roundedClass}`,
           hoverEffect: (
             <motion.div
               className={`absolute bottom-0 left-0 right-0 h-0.5 bg-burgundy ${roundedClass}`}
@@ -119,7 +120,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
       default:
         return {
-          className: `inline-flex items-center gap-3 px-8 py-4 bg-burgundy text-ivory ${roundedClass}`,
+          className: `inline-flex items-center gap-2 md:gap-3 px-5 py-3 md:px-8 md:py-4 bg-burgundy text-ivory text-sm md:text-base ${roundedClass}`,
           animation: {}
         };
     }
@@ -130,10 +131,10 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
   const content = (
     <>
       {buttonStyle.hoverEffect}
-      <span className={`relative z-10 flex items-center gap-3 transition-colors duration-300 ${buttonStyle.textHover || ''}`}>
+      <span className={`relative z-10 flex items-center gap-2 md:gap-3 transition-colors duration-300 ${buttonStyle.textHover || ''}`}>
         {children}
         {icon && (
-          <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
         )}
       </span>
     </>
@@ -161,10 +162,11 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
     return (
       <MotionButton
-        whileHover={buttonStyle.animation}
-        whileTap={{ scale: 0.98 }}
-        className={buttonStyle.className}
+        whileHover={disabled ? {} : buttonStyle.animation}
+        whileTap={disabled ? {} : { scale: 0.98 }}
+        className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
         onClick={handleClick}
+        disabled={disabled}
       >
         {content}
       </MotionButton>
@@ -173,10 +175,11 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
 
   return (
     <MotionButton
-      whileHover={buttonStyle.animation}
-      whileTap={{ scale: 0.98 }}
-      className={buttonStyle.className}
+      whileHover={disabled ? {} : buttonStyle.animation}
+      whileTap={disabled ? {} : { scale: 0.98 }}
+      className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {content}
     </MotionButton>

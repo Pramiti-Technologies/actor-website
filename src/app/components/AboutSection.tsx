@@ -19,7 +19,7 @@ export function AboutSection() {
           <div className="inline-block px-6 py-2 border border-amber/30 rounded-full mb-6">
             <span className="text-amber tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>ABOUT ME</span>
           </div>
-          <h2 className="text-5xl md:text-6xl mb-6 text-ivory" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl mb-6 text-ivory" style={{ fontFamily: 'var(--font-heading)' }}>
             The Story Behind the Performance
           </h2>
         </motion.div>
@@ -65,8 +65,8 @@ export function AboutSection() {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <h3 className="text-3xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>Industry Bio</h3>
-              <p className="text-warm-grey leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+              <h3 className="text-2xl md:text-3xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>Industry Bio</h3>
+              <p className="text-warm-grey leading-relaxed text-sm md:text-base" style={{ fontFamily: 'var(--font-body)' }}>
                 A versatile performer with over 10 years of experience across film, television, theatre, and comedy.
                 Known for bringing depth and authenticity to every role, from dramatic lead characters to comedic
                 supporting roles.
@@ -80,31 +80,31 @@ export function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="my-8 py-6 px-8 border-l-4 border-amber bg-amber/5 rounded-r-lg"
               >
-                <p className="text-ivory text-xl italic" style={{ fontFamily: 'var(--font-hook)', fontWeight: 400 }}>
+                <p className="text-ivory text-lg md:text-xl italic" style={{ fontFamily: 'var(--font-hook)', fontWeight: 400 }}>
                   "Most of the work happens when no one's watching."
                 </p>
               </motion.div>
 
-              <p className="text-warm-grey leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+              <p className="text-warm-grey leading-relaxed text-sm md:text-base" style={{ fontFamily: 'var(--font-body)' }}>
                 Trained at prestigious institutions and featured in award-winning productions. A storyteller at heart
                 with a passion for creating memorable moments that resonate with audiences.
               </p>
             </div>
 
             <div className="pt-6 border-t border-amber/20">
-              <h4 className="text-xl text-ivory mb-4">Professional Highlights</h4>
+              <h4 className="text-lg md:text-xl text-ivory mb-4">Professional Highlights</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <Award className="w-5 h-5 text-amber flex-shrink-0 mt-1" />
-                  <span className="text-warm-grey">Best Actor Award - Independent Film Festival 2024</span>
+                  <span className="text-warm-grey text-sm md:text-base">Best Actor Award - Independent Film Festival 2024</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Award className="w-5 h-5 text-amber flex-shrink-0 mt-1" />
-                  <span className="text-warm-grey">Outstanding Performance - Regional Theatre Awards 2023</span>
+                  <span className="text-warm-grey text-sm md:text-base">Outstanding Performance - Regional Theatre Awards 2023</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Award className="w-5 h-5 text-amber flex-shrink-0 mt-1" />
-                  <span className="text-warm-grey">Audience Choice Award - Comedy Festival 2023</span>
+                  <span className="text-warm-grey text-sm md:text-base">Audience Choice Award - Comedy Festival 2023</span>
                 </li>
               </ul>
             </div>
@@ -130,8 +130,8 @@ export function AboutSection() {
             <Quote className="absolute top-6 left-6 w-12 h-12 text-amber/20" />
 
             <div className="relative z-10">
-              <h3 className="text-3xl text-ivory mb-6">The Journey</h3>
-              <div className="space-y-4 text-warm-grey leading-relaxed">
+              <h3 className="text-2xl md:text-3xl text-ivory mb-6">The Journey</h3>
+              <div className="space-y-4 text-warm-grey leading-relaxed text-sm md:text-base">
                 <p>
                   My journey in the performing arts began on a small community theatre stage, where I discovered
                   the transformative power of storytelling. What started as a childhood fascination evolved into

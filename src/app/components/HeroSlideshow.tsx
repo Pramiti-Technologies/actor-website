@@ -57,19 +57,6 @@ export function HeroSlideshow() {
         </motion.div>
       ))}
 
-      {/* Top Left Name */}
-      <div className="absolute top-8 left-6 md:left-12 z-20">
-        <motion.h1
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-3xl md:text-5xl text-ivory tracking-wider"
-          style={{ fontFamily: 'var(--font-hook)', letterSpacing: '0.1em' }}
-        >
-          PRASHANTH
-        </motion.h1>
-      </div>
-
       {/* Bottom Left Content - Text and Buttons */}
       <div className="absolute bottom-12 left-6 md:left-12 z-20 max-w-md">
         {/* Tagline Text - Above Buttons */}
@@ -77,7 +64,7 @@ export function HeroSlideshow() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-xl md:text-2xl text-ivory mb-3"
+          className="text-lg md:text-xl lg:text-2xl text-ivory mb-3"
           style={{ fontFamily: 'var(--font-hook)', fontWeight: 300, fontStyle: 'italic' }}
         >
           "I entertain because I must."
@@ -112,8 +99,8 @@ export function HeroSlideshow() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
-                ? 'w-12 bg-amber'
-                : 'w-2 bg-warm-grey/50 hover:bg-warm-grey'
+              ? 'w-12 bg-amber'
+              : 'w-2 bg-warm-grey/50 hover:bg-warm-grey'
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />

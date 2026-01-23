@@ -19,7 +19,7 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Determine active section based on scroll position
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 200;
@@ -56,38 +56,50 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-charcoal/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-charcoal/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+          }`}
       >
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-10 py-5">
           {/* Desktop Navigation - Text Only */}
-          <div className="hidden md:flex items-center justify-end gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative text-sm tracking-widest transition-all duration-300 uppercase ${
-                  activeSection === item.id
+          <div className="hidden lg:flex items-center justify-between gap-8">
+            {/* Left Side - Name */}
+            <span
+              className={`tracking-widest font-semibold transition-all duration-300 ${isScrolled
+                ? 'text-amber text-lg'
+                : 'text-white text-4xl'
+                }`}
+              style={{ fontFamily: 'var(--font-hook)', letterSpacing: '0.15em' }}
+            >
+              PRASHANTH
+            </span>
+
+            {/* Right Side - Nav Items */}
+            <div className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative text-sm tracking-widest transition-all duration-300 uppercase ${activeSection === item.id
                     ? 'text-amber'
                     : 'text-warm-grey hover:text-ivory'
-                }`}
-                style={{ fontFamily: 'var(--font-navigation)' }}
-              >
-                {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
+                    }`}
+                  style={{ fontFamily: 'var(--font-navigation)' }}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Mobile Navigation Header */}
-          <div className="md:hidden flex items-center justify-between">
+          {/* Mobile/Tablet Navigation Header */}
+          <div className="lg:hidden flex items-center justify-between">
             <span className="text-amber tracking-widest text-sm">PRASHANTH</span>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -110,7 +122,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-charcoal/80 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-charcoal/80 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -120,7 +132,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-charcoal border-l-2 border-amber/30 z-50 md:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-charcoal border-l-2 border-amber/30 z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-6">
                 {/* Header */}
@@ -144,11 +156,10 @@ export function Navigation() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       onClick={() => scrollToSection(item.id)}
-                      className={`w-full text-left px-6 py-4 rounded-lg border transition-all duration-300 ${
-                        activeSection === item.id
-                          ? 'bg-burgundy border-burgundy text-ivory shadow-lg'
-                          : 'bg-charcoal border-amber/20 text-warm-grey hover:bg-burgundy/20 hover:border-amber hover:text-amber'
-                      }`}
+                      className={`w-full text-left px-6 py-4 rounded-lg border transition-all duration-300 ${activeSection === item.id
+                        ? 'bg-burgundy border-burgundy text-ivory shadow-lg'
+                        : 'bg-charcoal border-amber/20 text-warm-grey hover:bg-burgundy/20 hover:border-amber hover:text-amber'
+                        }`}
                     >
                       <span className="block tracking-wide">{item.label}</span>
                     </motion.button>

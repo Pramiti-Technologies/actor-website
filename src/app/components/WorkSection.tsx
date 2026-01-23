@@ -114,10 +114,10 @@ export function WorkSection() {
           <div className="inline-block px-6 py-2 border border-amber/30 rounded-full mb-6">
             <span className="text-amber tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>MY WORK</span>
           </div>
-          <h2 className="text-5xl md:text-6xl mb-6 text-ivory" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl mb-6 text-ivory" style={{ fontFamily: 'var(--font-heading)' }}>
             Performance Portfolio
           </h2>
-          <p className="text-warm-grey text-lg max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="text-warm-grey text-base md:text-lg max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-body)' }}>
             From stage to screen, bringing characters to life with depth and authenticity
           </p>
         </motion.div>
@@ -129,7 +129,7 @@ export function WorkSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl mb-8 text-ivory"
+            className="text-2xl md:text-3xl lg:text-4xl mb-8 text-ivory"
             style={{ fontFamily: 'var(--font-subsection)' }}
           >
             Acting
@@ -228,7 +228,7 @@ export function WorkSection() {
                     </span>
                     <span className="text-xs text-warm-grey">{project.role}</span>
                   </div>
-                  <h3 className="text-xl mb-2 text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
+                  <h3 className="text-lg md:text-xl mb-2 text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
                     {project.title}
                   </h3>
                   <p className="text-sm text-warm-grey" style={{ fontFamily: 'var(--font-body)', fontWeight: 300 }}>
@@ -267,7 +267,7 @@ export function WorkSection() {
           >
             <div className="flex items-center gap-3 mb-8">
               <Sparkles className="w-6 h-6 text-amber" />
-              <h3 className="text-3xl md:text-4xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
                 Comedy Reels
               </h3>
             </div>
@@ -320,7 +320,7 @@ export function WorkSection() {
           >
             <div className="flex items-center gap-3 mb-8">
               <Sparkles className="w-6 h-6 text-amber" />
-              <h3 className="text-3xl md:text-4xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl text-ivory" style={{ fontFamily: 'var(--font-subsection)' }}>
                 Ghibli Stories
               </h3>
             </div>
