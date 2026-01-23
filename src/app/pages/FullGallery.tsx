@@ -134,24 +134,26 @@ export function FullGallery() {
   return (
     <div className="min-h-screen bg-charcoal">
       {/* Header */}
-      <div className="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-amber/10">
-        <div className="container mx-auto max-w-7xl px-6 py-6">
-          <div className="flex items-center justify-between">
-            <h1 className="text-4xl text-ivory">Full Gallery</h1>
-            <Button variant="minimal" onClick={() => navigate('/')}>
+      <div className="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-md border-b border-amber/10">
+        <div className="container mx-auto max-w-7xl px-4 md:px-6 py-4 md:py-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h1 className="text-2xl md:text-4xl text-ivory tracking-wider" style={{ fontFamily: 'var(--font-hook)' }}>
+              FULL GALLERY
+            </h1>
+            <Button variant="minimal" onClick={() => navigate('/')} className="w-fit self-start sm:self-auto">
               Back to Home
             </Button>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-2 md:gap-4 mt-6 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${filter === category
-                    ? 'bg-amber text-charcoal'
-                    : 'bg-charcoal border border-warm-grey/40 text-warm-grey hover:border-amber hover:text-amber'
+                className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base whitespace-nowrap transition-all duration-300 ${filter === category
+                  ? 'bg-amber text-charcoal'
+                  : 'bg-charcoal border border-warm-grey/40 text-warm-grey hover:border-amber hover:text-amber'
                   }`}
               >
                 {category}
@@ -162,8 +164,8 @@ export function FullGallery() {
       </div>
 
       {/* Gallery Grid */}
-      <div className="container mx-auto max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8 md:py-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {filteredImages.map((image, index) => (
             <motion.div
               key={image.id}
@@ -208,40 +210,40 @@ export function FullGallery() {
           {/* Close Button */}
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300"
+            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300 z-[110]"
           >
-            <X className="w-6 h-6 text-ivory" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-ivory" />
           </button>
 
           {/* Previous Button */}
           <button
             onClick={(e) => { e.stopPropagation(); handlePrevious(); }}
-            className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300 z-[110]"
           >
-            <ChevronLeft className="w-6 h-6 text-ivory" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-ivory" />
           </button>
 
           {/* Next Button */}
           <button
             onClick={(e) => { e.stopPropagation(); handleNext(); }}
-            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-burgundy/80 hover:bg-burgundy flex items-center justify-center transition-colors duration-300 z-[110]"
           >
-            <ChevronRight className="w-6 h-6 text-ivory" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-ivory" />
           </button>
 
           {/* Image */}
-          <div className="max-w-5xl max-h-[80vh]" onClick={(e) => e.stopPropagation()}>
+          <div className="max-w-full md:max-w-5xl max-h-[70vh] md:max-h-[80vh] px-2" onClick={(e) => e.stopPropagation()}>
             <ImageWithFallback
               src={selectedImageData.src}
               alt={selectedImageData.alt}
               className="w-full h-full object-contain rounded-lg"
             />
-            <div className="mt-4 text-center">
-              <span className="inline-block px-4 py-2 bg-amber/20 text-amber rounded-full mb-2">
+            <div className="mt-4 text-center px-4">
+              <span className="inline-block px-3 py-1 md:px-4 md:py-2 bg-amber/20 text-amber text-xs md:text-sm rounded-full mb-2">
                 {selectedImageData.category}
               </span>
-              <h2 className="text-2xl text-ivory">{selectedImageData.alt}</h2>
-              <p className="text-sm text-warm-grey mt-2">{selectedImageData.caption}</p>
+              <h2 className="text-xl md:text-2xl text-ivory">{selectedImageData.alt}</h2>
+              <p className="text-xs md:text-sm text-warm-grey mt-2 line-clamp-2 md:line-clamp-none">{selectedImageData.caption}</p>
             </div>
           </div>
         </motion.div>

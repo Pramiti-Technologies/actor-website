@@ -11,9 +11,20 @@ interface ButtonProps {
   icon?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
-export function Button({ children, href, target, onClick, variant = 'primary', icon = true, rounded = false, disabled = false }: ButtonProps) {
+export function Button({
+  children,
+  href,
+  target,
+  onClick,
+  variant = 'primary',
+  icon = true,
+  rounded = false,
+  disabled = false,
+  className = ''
+}: ButtonProps) {
   const navigate = useNavigate();
 
   const getButtonStyles = () => {
@@ -164,7 +175,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
       <MotionButton
         whileHover={disabled ? {} : buttonStyle.animation}
         whileTap={disabled ? {} : { scale: 0.98 }}
-        className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
         onClick={handleClick}
         disabled={disabled}
       >
@@ -177,7 +188,7 @@ export function Button({ children, href, target, onClick, variant = 'primary', i
     <MotionButton
       whileHover={disabled ? {} : buttonStyle.animation}
       whileTap={disabled ? {} : { scale: 0.98 }}
-      className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      className={`${buttonStyle.className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
