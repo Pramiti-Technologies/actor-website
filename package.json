@@ -2,11 +2,12 @@
   "name": "actor-portfolio",
   "private": true,
   "version": "0.0.1",
-  "homepage": "https://prashanthkrishnamoorthy.org/",
+  "homepage": "https://prashanthkrishnamoorthy.org",
   "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
