@@ -57,12 +57,12 @@ export function ContactSection() {
 
     try {
       // Initialize EmailJS with your public key
-      emailjs.init('mw8-vmCLm6NO4F6bl');
+      emailjs.init('iC6fmK4zswnMNLCfY');
 
       // Send email using EmailJS
       const result = await emailjs.send(
-        'service_m3tq3y9',  // Your Service ID
-        'template_4e3cj33', // Your Template ID
+        'service_skeg7dj',  // Your Service ID
+        'template_1lvx96f', // Your Template ID
         {
           from_name: formData.name,
           reply_to: formData.email,
